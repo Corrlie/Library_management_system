@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>img/books.png</file>
+        <file>img/branches.png</file>
+        <file>img/close2.png</file>
+        <file>img/confirm.png</file>
+        <file>img/employee.png</file>
+        <file>img/new_database.png</file>
+        <file>img/noDataBaseConnected.PNG</file>
+        <file>img/reader.png</file>
+        <file>img/rentals.png</file>
+        <file>img/warning.png</file>
+        <file>img/noDataBaseConnected-noText.png</file>
+    </qresource>
+</RCC>

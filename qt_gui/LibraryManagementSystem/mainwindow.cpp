@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     mModel = nullptr;
+    ui->statusbar->addPermanentWidget(ui->lbl_connection_status);
+    ui->statusbar->showMessage("Database is not connected");
+    ui->stackedWidget->setCurrentWidget(ui->page_start);
+
 
 }
 
@@ -30,8 +34,18 @@ void MainWindow::on_actionConnect_DB_triggered()
     if(mModel == nullptr){
         mModel = new QSqlQueryModel(this);
         mDbConnection.setIsConnected(true);
-        mModel->setQuery("SELECT * FROM Books");
+        QMessageBox::information(this, "Info", "Database is connected now");
+
+        // statusBar
+        ui->statusbar->showMessage("Database is connected");
+        QPixmap pixMap(":/res/img/confirm.png");
+        int w = ui->lbl_connection_status->width();
+        int h = ui->lbl_connection_status->height();
+        ui->lbl_connection_status->setPixmap(pixMap.scaled(w,h,Qt::KeepAspectRatio));
+
+        ui->actionConnect_DB->setDisabled(true);
         ui->tableView->setModel(mModel);
+        ui->stackedWidget->setCurrentWidget(ui->page_table);
     }
     else{
         QMessageBox::information(this, "Info", "Database is already connected");

@@ -172,6 +172,7 @@ Makefile: ../LibraryManagementSystem/LibraryManagementSystem.pro D:/Studia/inne/
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/qt_config.prf \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/win32-g++/qmake.conf \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/exclusive_builds.prf \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/toolchain.prf \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/default_pre.prf \
@@ -202,8 +203,8 @@ Makefile: ../LibraryManagementSystem/LibraryManagementSystem.pro D:/Studia/inne/
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6Sql.prl \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6Core.prl \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
-		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/build_pass.prf
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/build_pass.prf \
+		../LibraryManagementSystem/resources.qrc
 	$(QMAKE) -o Makefile ..\LibraryManagementSystem\LibraryManagementSystem.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/spec_pre.prf:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/device_config.prf:
@@ -307,6 +308,7 @@ D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/qt_functio
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/qt_config.prf:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/win32-g++/qmake.conf:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/exclusive_builds.prf:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/toolchain.prf:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/default_pre.prf:
@@ -337,8 +339,8 @@ D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6Gui.prl:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6Sql.prl:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6Core.prl:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/mkspecs/features/build_pass.prf:
+../LibraryManagementSystem/resources.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\LibraryManagementSystem\LibraryManagementSystem.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 
