@@ -28,6 +28,16 @@ private slots:
 
     void on_actionAbout_Qt_triggered();
 
+    void on_actionCatalogue_triggered();
+
+    void on_actionLibraries_triggered();
+
+    void on_actionReaders_triggered();
+
+    void on_actionBorrowings_triggered();
+
+    void on_actionEmployees_triggered();
+
 private:
     Ui::MainWindow *ui;
     DbConnection mDbConnection;

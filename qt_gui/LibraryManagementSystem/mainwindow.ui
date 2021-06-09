@@ -135,6 +135,16 @@
    </attribute>
    <addaction name="actionConnect_DB"/>
    <addaction name="separator"/>
+   <addaction name="actionCatalogue"/>
+   <addaction name="separator"/>
+   <addaction name="actionLibraries"/>
+   <addaction name="separator"/>
+   <addaction name="actionReaders"/>
+   <addaction name="separator"/>
+   <addaction name="actionBorrowings"/>
+   <addaction name="separator"/>
+   <addaction name="actionEmployees"/>
+   <addaction name="separator"/>
    <addaction name="actionQuit"/>
   </widget>
   <action name="actionConnect_DB">
@@ -163,6 +173,66 @@
   <action name="actionAbout_Qt">
    <property name="text">
     <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionCatalogue">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/res/img/books.png</normaloff>:/res/img/books.png</iconset>
+   </property>
+   <property name="text">
+    <string>Catalogue</string>
+   </property>
+  </action>
+  <action name="actionLibraries">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/res/img/branches.png</normaloff>:/res/img/branches.png</iconset>
+   </property>
+   <property name="text">
+    <string>Branches</string>
+   </property>
+  </action>
+  <action name="actionReaders">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/res/img/reader.png</normaloff>:/res/img/reader.png</iconset>
+   </property>
+   <property name="text">
+    <string>Readers</string>
+   </property>
+  </action>
+  <action name="actionBorrowings">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/res/img/rentals.png</normaloff>:/res/img/rentals.png</iconset>
+   </property>
+   <property name="text">
+    <string>Borrowed Books</string>
+   </property>
+  </action>
+  <action name="actionEmployees">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/res/img/employee.png</normaloff>:/res/img/employee.png</iconset>
+   </property>
+   <property name="text">
+    <string>Employees</string>
    </property>
   </action>
  </widget>

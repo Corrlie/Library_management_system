@@ -43,7 +43,16 @@ void MainWindow::on_actionConnect_DB_triggered()
         int h = ui->lbl_connection_status->height();
         ui->lbl_connection_status->setPixmap(pixMap.scaled(w,h,Qt::KeepAspectRatio));
 
+        // enable/disable
         ui->actionConnect_DB->setDisabled(true);
+        ui->actionCatalogue->setEnabled(true);
+        ui->actionLibraries->setEnabled(true);
+        ui->actionReaders->setEnabled(true);
+        ui->actionBorrowings->setEnabled(true);
+        ui->actionEmployees->setEnabled(true);
+
+
+
         ui->tableView->setModel(mModel);
         ui->stackedWidget->setCurrentWidget(ui->page_table);
     }
@@ -67,5 +76,50 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_actionAbout_Qt_triggered()
 {
     QMessageBox::aboutQt(this, "Qt");
+}
+
+
+void MainWindow::on_actionCatalogue_triggered()
+{
+    mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+"inner join Books AS bo on bo.id = cat.idBook "
+"inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch");
+
+    ui->tableView->setModel(mModel);
+}
+
+
+void MainWindow::on_actionLibraries_triggered()
+{
+    mModel->setQuery("SELECT city [City], postCode [Post Code], address [Address] FROM Branches");
+    ui->tableView->setModel(mModel);
+}
+
+
+void MainWindow::on_actionReaders_triggered()
+{
+    mModel->setQuery("SELECT r.lastname+' '+r.firstName [Full Name],"
+                    "r.dateOfBirth [Birth Date],"
+                    "r.dateOfJoining [Join Date],"
+                    "r.phoneNumber [Phone Number]"
+                    " FROM Readers as r");
+    ui->tableView->setModel(mModel);
+}
+
+
+void MainWindow::on_actionBorrowings_triggered()
+{
+    mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author], rd.lastName+' '+rd.firstName [Reader] from Rentals as r inner join Catalogue as cat on cat.id = r.idCatalogue inner join Books as bo on bo.id = cat.idBook inner join Readers as rd on rd.id = r.idReader");
+    ui->tableView->setModel(mModel);
+}
+
+
+void MainWindow::on_actionEmployees_triggered()
+{
+    mModel->setQuery("SELECT e.lastName+' '+e.firstName [Full Name],"
+                    "e.dateOfBirth [Birth Date],"
+                    "e.dateOfEmployment [Employment Date]"
+                    " FROM Employees as e");
+    ui->tableView->setModel(mModel);
 }
 
