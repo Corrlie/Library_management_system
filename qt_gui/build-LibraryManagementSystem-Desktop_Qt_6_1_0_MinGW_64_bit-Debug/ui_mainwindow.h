@@ -12,12 +12,17 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableView>
@@ -40,10 +45,21 @@ public:
     QAction *actionBorrowings;
     QAction *actionEmployees;
     QWidget *centralwidget;
-    QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout_2;
     QStackedWidget *stackedWidget;
     QWidget *page_table;
     QTableView *tableView;
+    QWidget *page_catalogue;
+    QHBoxLayout *horizontalLayout;
+    QTableView *tableView_cat;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout;
+    QLabel *label_2;
+    QComboBox *comboBox_cat;
+    QPushButton *pushButton;
+    QFrame *line;
+    QComboBox *comboBox_cities;
+    QLabel *label;
     QWidget *page_start;
     QVBoxLayout *verticalLayout_2;
     QLabel *lbl_notConnected;
@@ -58,7 +74,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(1068, 628);
         actionConnect_DB = new QAction(MainWindow);
         actionConnect_DB->setObjectName(QString::fromUtf8("actionConnect_DB"));
         QIcon icon;
@@ -105,51 +121,132 @@ public:
         actionEmployees->setIcon(icon6);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        horizontalLayout_2 = new QHBoxLayout(centralwidget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         page_table = new QWidget();
         page_table->setObjectName(QString::fromUtf8("page_table"));
         tableView = new QTableView(page_table);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(0, 0, 711, 531));
+        tableView->setGeometry(QRect(9, 9, 921, 551));
         stackedWidget->addWidget(page_table);
+        page_catalogue = new QWidget();
+        page_catalogue->setObjectName(QString::fromUtf8("page_catalogue"));
+        page_catalogue->setMaximumSize(QSize(965, 543));
+        horizontalLayout = new QHBoxLayout(page_catalogue);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        tableView_cat = new QTableView(page_catalogue);
+        tableView_cat->setObjectName(QString::fromUtf8("tableView_cat"));
+
+        horizontalLayout->addWidget(tableView_cat);
+
+        groupBox = new QGroupBox(page_catalogue);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy);
+        groupBox->setMaximumSize(QSize(400, 250));
+        groupBox->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+        gridLayout = new QGridLayout(groupBox);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        QFont font;
+        font.setPointSize(10);
+        label_2->setFont(font);
+
+        gridLayout->addWidget(label_2, 2, 0, 1, 1);
+
+        comboBox_cat = new QComboBox(groupBox);
+        comboBox_cat->addItem(QString());
+        comboBox_cat->addItem(QString());
+        comboBox_cat->addItem(QString());
+        comboBox_cat->addItem(QString());
+        comboBox_cat->addItem(QString());
+        comboBox_cat->addItem(QString());
+        comboBox_cat->addItem(QString());
+        comboBox_cat->setObjectName(QString::fromUtf8("comboBox_cat"));
+
+        gridLayout->addWidget(comboBox_cat, 0, 1, 1, 1);
+
+        pushButton = new QPushButton(groupBox);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy1);
+
+        gridLayout->addWidget(pushButton, 3, 0, 1, 2);
+
+        line = new QFrame(groupBox);
+        line->setObjectName(QString::fromUtf8("line"));
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(line->sizePolicy().hasHeightForWidth());
+        line->setSizePolicy(sizePolicy2);
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        gridLayout->addWidget(line, 1, 0, 1, 2);
+
+        comboBox_cities = new QComboBox(groupBox);
+        comboBox_cities->addItem(QString());
+        comboBox_cities->addItem(QString());
+        comboBox_cities->addItem(QString());
+        comboBox_cities->setObjectName(QString::fromUtf8("comboBox_cities"));
+
+        gridLayout->addWidget(comboBox_cities, 2, 1, 1, 1);
+
+        label = new QLabel(groupBox);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font);
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
+
+        horizontalLayout->addWidget(groupBox);
+
+        stackedWidget->addWidget(page_catalogue);
         page_start = new QWidget();
         page_start->setObjectName(QString::fromUtf8("page_start"));
         verticalLayout_2 = new QVBoxLayout(page_start);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         lbl_notConnected = new QLabel(page_start);
         lbl_notConnected->setObjectName(QString::fromUtf8("lbl_notConnected"));
-        QFont font;
-        font.setPointSize(16);
-        lbl_notConnected->setFont(font);
+        QFont font1;
+        font1.setPointSize(16);
+        lbl_notConnected->setFont(font1);
         lbl_notConnected->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(lbl_notConnected);
 
         stackedWidget->addWidget(page_start);
 
-        gridLayout->addWidget(stackedWidget, 0, 0, 1, 1);
+        horizontalLayout_2->addWidget(stackedWidget);
 
         lbl_connection_status = new QLabel(centralwidget);
         lbl_connection_status->setObjectName(QString::fromUtf8("lbl_connection_status"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(lbl_connection_status->sizePolicy().hasHeightForWidth());
-        lbl_connection_status->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(lbl_connection_status->sizePolicy().hasHeightForWidth());
+        lbl_connection_status->setSizePolicy(sizePolicy3);
         lbl_connection_status->setMinimumSize(QSize(0, 0));
         lbl_connection_status->setMaximumSize(QSize(20, 20));
         lbl_connection_status->setPixmap(QPixmap(QString::fromUtf8(":/res/img/warning.png")));
         lbl_connection_status->setScaledContents(true);
 
-        gridLayout->addWidget(lbl_connection_status, 1, 0, 1, 1);
+        horizontalLayout_2->addWidget(lbl_connection_status);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 1068, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuHelp = new QMenu(menubar);
@@ -160,9 +257,9 @@ public:
         MainWindow->setStatusBar(statusbar);
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
-        QFont font1;
-        font1.setPointSize(7);
-        toolBar->setFont(font1);
+        QFont font2;
+        font2.setPointSize(7);
+        toolBar->setFont(font2);
         toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         MainWindow->addToolBar(Qt::LeftToolBarArea, toolBar);
 
@@ -208,6 +305,24 @@ public:
         actionReaders->setText(QCoreApplication::translate("MainWindow", "Readers", nullptr));
         actionBorrowings->setText(QCoreApplication::translate("MainWindow", "Borrowed Books", nullptr));
         actionEmployees->setText(QCoreApplication::translate("MainWindow", "Employees", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Filters", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Selected\n"
+"City:", nullptr));
+        comboBox_cat->setItemText(0, QCoreApplication::translate("MainWindow", "All Categories", nullptr));
+        comboBox_cat->setItemText(1, QCoreApplication::translate("MainWindow", "Biography", nullptr));
+        comboBox_cat->setItemText(2, QCoreApplication::translate("MainWindow", "Crime", nullptr));
+        comboBox_cat->setItemText(3, QCoreApplication::translate("MainWindow", "Fiction", nullptr));
+        comboBox_cat->setItemText(4, QCoreApplication::translate("MainWindow", "Health", nullptr));
+        comboBox_cat->setItemText(5, QCoreApplication::translate("MainWindow", "Sport", nullptr));
+        comboBox_cat->setItemText(6, QCoreApplication::translate("MainWindow", "Travel", nullptr));
+
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Apply filters", nullptr));
+        comboBox_cities->setItemText(0, QCoreApplication::translate("MainWindow", "All Cities", nullptr));
+        comboBox_cities->setItemText(1, QCoreApplication::translate("MainWindow", "London", nullptr));
+        comboBox_cities->setItemText(2, QCoreApplication::translate("MainWindow", "Toronto", nullptr));
+
+        label->setText(QCoreApplication::translate("MainWindow", "Selected\n"
+"Categories:", nullptr));
         lbl_notConnected->setText(QCoreApplication::translate("MainWindow", "No database connected!", nullptr));
         lbl_connection_status->setText(QString());
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));

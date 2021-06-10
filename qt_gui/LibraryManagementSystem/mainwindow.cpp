@@ -52,7 +52,7 @@ void MainWindow::on_actionConnect_DB_triggered()
         ui->actionEmployees->setEnabled(true);
 
 
-
+        // set Model and Page
         ui->tableView->setModel(mModel);
         ui->stackedWidget->setCurrentWidget(ui->page_table);
     }
@@ -81,16 +81,20 @@ void MainWindow::on_actionAbout_Qt_triggered()
 
 void MainWindow::on_actionCatalogue_triggered()
 {
+
+    ui->stackedWidget->setCurrentWidget(ui->page_catalogue);
+
     mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
 "inner join Books AS bo on bo.id = cat.idBook "
 "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch");
 
-    ui->tableView->setModel(mModel);
+    ui->tableView_cat->setModel(mModel);
 }
 
 
 void MainWindow::on_actionLibraries_triggered()
 {
+    ui->stackedWidget->setCurrentWidget(ui->page_table);
     mModel->setQuery("SELECT city [City], postCode [Post Code], address [Address] FROM Branches");
     ui->tableView->setModel(mModel);
 }
@@ -98,6 +102,7 @@ void MainWindow::on_actionLibraries_triggered()
 
 void MainWindow::on_actionReaders_triggered()
 {
+    ui->stackedWidget->setCurrentWidget(ui->page_table);
     mModel->setQuery("SELECT r.lastname+' '+r.firstName [Full Name],"
                     "r.dateOfBirth [Birth Date],"
                     "r.dateOfJoining [Join Date],"
@@ -109,6 +114,7 @@ void MainWindow::on_actionReaders_triggered()
 
 void MainWindow::on_actionBorrowings_triggered()
 {
+    ui->stackedWidget->setCurrentWidget(ui->page_table);
     mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author], rd.lastName+' '+rd.firstName [Reader] from Rentals as r inner join Catalogue as cat on cat.id = r.idCatalogue inner join Books as bo on bo.id = cat.idBook inner join Readers as rd on rd.id = r.idReader");
     ui->tableView->setModel(mModel);
 }
@@ -116,10 +122,58 @@ void MainWindow::on_actionBorrowings_triggered()
 
 void MainWindow::on_actionEmployees_triggered()
 {
+    ui->stackedWidget->setCurrentWidget(ui->page_table);
     mModel->setQuery("SELECT e.lastName+' '+e.firstName [Full Name],"
                     "e.dateOfBirth [Birth Date],"
                     "e.dateOfEmployment [Employment Date]"
                     " FROM Employees as e");
     ui->tableView->setModel(mModel);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QMessageBox::information(this, "Filters",
+                             "Applied filters:\n\nCategory: "+ui->comboBox_cat->currentText()+"\n"
+                             "City: "+ui->comboBox_cities->currentText());
+    QString scope_cat;
+    QString scope_cities;
+
+
+    // filters actions
+    if(ui->comboBox_cat->currentText() != "All Categories"){
+        scope_cat = ui->comboBox_cat->currentText();
+    }
+    if(ui->comboBox_cities->currentData()!="All Cities"){
+         scope_cities = ui->comboBox_cities->currentText();
+    }
+
+    // queries
+
+    if(ui->comboBox_cat->currentText() == "All Categories" && ui->comboBox_cities->currentText()=="All Cities"){
+        mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+        "inner join Books AS bo on bo.id = cat.idBook "
+        "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch");
+    }
+    else if(ui->comboBox_cat->currentText() != "All Categories" && ui->comboBox_cities->currentText()=="All Cities"){
+        mModel->setQuery(QString("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+    "inner join Books AS bo on bo.id = cat.idBook "
+    "inner join Categories AS cgr ON cgr.id = bo.idCategory "
+    "inner join Branches as br on br.id = cat.idBranch WHERE cgr.category='%1'").arg(scope_cat));
+    }
+    else if(ui->comboBox_cat->currentText() == "All Categories" && ui->comboBox_cities->currentText()!="All Cities"){
+        mModel->setQuery(QString("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch]"
+    " from Catalogue as cat inner join Books AS bo on bo.id = cat.idBook "
+    "inner join Categories AS cgr ON cgr.id = bo.idCategory"
+    " inner join Branches as br on br.id = cat.idBranch WHERE br.city='%1'").arg(scope_cities));
+    }
+    else{
+        mModel->setQuery(QString("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+    "inner join Books AS bo on bo.id = cat.idBook "
+    "inner join Categories AS cgr ON cgr.id = bo.idCategory "
+    "inner join Branches as br on br.id = cat.idBranch WHERE cgr.category='%1' AND br.city='%2'").arg(scope_cat,scope_cities));
+    }
+
+    ui->tableView_cat->setModel(mModel);
+
 }
 
