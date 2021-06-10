@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QSqlQueryModel>
-
+#include "dialogdbdiagram.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -50,7 +50,7 @@ void MainWindow::on_actionConnect_DB_triggered()
         ui->actionReaders->setEnabled(true);
         ui->actionBorrowings->setEnabled(true);
         ui->actionEmployees->setEnabled(true);
-
+        ui->actionDatabase_Diagram->setEnabled(true);
 
         // set Model and Page
         ui->tableView->setModel(mModel);
@@ -174,6 +174,15 @@ void MainWindow::on_pushButton_clicked()
     }
 
     ui->tableView_cat->setModel(mModel);
+
+}
+
+
+void MainWindow::on_actionDatabase_Diagram_triggered()
+{
+    DialogDbDiagram dbDiagramWindow;
+    dbDiagramWindow.setModal(true);
+    dbDiagramWindow.exec();
 
 }
 

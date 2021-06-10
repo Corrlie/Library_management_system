@@ -44,6 +44,7 @@ public:
     QAction *actionReaders;
     QAction *actionBorrowings;
     QAction *actionEmployees;
+    QAction *actionDatabase_Diagram;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout_2;
     QStackedWidget *stackedWidget;
@@ -119,6 +120,9 @@ public:
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/res/img/employee.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionEmployees->setIcon(icon6);
+        actionDatabase_Diagram = new QAction(MainWindow);
+        actionDatabase_Diagram->setObjectName(QString::fromUtf8("actionDatabase_Diagram"));
+        actionDatabase_Diagram->setEnabled(false);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
@@ -270,6 +274,8 @@ public:
         menuFile->addAction(actionQuit);
         menuHelp->addAction(actionAbout);
         menuHelp->addSeparator();
+        menuHelp->addAction(actionDatabase_Diagram);
+        menuHelp->addSeparator();
         menuHelp->addAction(actionAbout_Qt);
         toolBar->addAction(actionConnect_DB);
         toolBar->addSeparator();
@@ -305,6 +311,7 @@ public:
         actionReaders->setText(QCoreApplication::translate("MainWindow", "Readers", nullptr));
         actionBorrowings->setText(QCoreApplication::translate("MainWindow", "Borrowed Books", nullptr));
         actionEmployees->setText(QCoreApplication::translate("MainWindow", "Employees", nullptr));
+        actionDatabase_Diagram->setText(QCoreApplication::translate("MainWindow", "Database Diagram", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Filters", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Selected\n"
 "City:", nullptr));

@@ -40,6 +40,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_actionDatabase_Diagram_triggered();
+
 private:
     Ui::MainWindow *ui;
     DbConnection mDbConnection;

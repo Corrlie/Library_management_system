@@ -256,6 +256,8 @@ Categories:</string>
     </property>
     <addaction name="actionAbout"/>
     <addaction name="separator"/>
+    <addaction name="actionDatabase_Diagram"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout_Qt"/>
    </widget>
    <addaction name="menuFile"/>
@@ -380,6 +382,14 @@ Categories:</string>
    </property>
    <property name="text">
     <string>Employees</string>
+   </property>
+  </action>
+  <action name="actionDatabase_Diagram">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Database Diagram</string>
    </property>
   </action>
  </widget>

@@ -10,14 +10,17 @@ CONFIG += c++11
 
 SOURCES += \
     dbconnection.cpp \
+    dialogdbdiagram.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     dbconnection.h \
+    dialogdbdiagram.h \
     mainwindow.h
 
 FORMS += \
+    dialogdbdiagram.ui \
     mainwindow.ui
 
 # Default rules for deployment.
