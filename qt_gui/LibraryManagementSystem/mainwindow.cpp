@@ -133,45 +133,49 @@ void MainWindow::on_actionEmployees_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox::information(this, "Filters",
-                             "Applied filters:\n\nCategory: "+ui->comboBox_cat->currentText()+"\n"
-                             "City: "+ui->comboBox_cities->currentText());
-    QString scope_cat;
-    QString scope_cities;
-
-
-    // filters actions
-    if(ui->comboBox_cat->currentText() != "All Categories"){
-        scope_cat = ui->comboBox_cat->currentText();
-    }
-    if(ui->comboBox_cities->currentData()!="All Cities"){
-         scope_cities = ui->comboBox_cities->currentText();
-    }
+    QString scope_cat = ui->comboBox_cat->currentText();
+    QString scope_cities = ui->comboBox_cities->currentText();
+    QString book_title= ui->lineEdit_title->text();
+    QString query_catalogue = "select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+        "inner join Books AS bo on bo.id = cat.idBook "
+        "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch";
 
     // queries
-
-    if(ui->comboBox_cat->currentText() == "All Categories" && ui->comboBox_cities->currentText()=="All Cities"){
-        mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
-        "inner join Books AS bo on bo.id = cat.idBook "
-        "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch");
-    }
-    else if(ui->comboBox_cat->currentText() != "All Categories" && ui->comboBox_cities->currentText()=="All Cities"){
-        mModel->setQuery(QString("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
-    "inner join Books AS bo on bo.id = cat.idBook "
-    "inner join Categories AS cgr ON cgr.id = bo.idCategory "
-    "inner join Branches as br on br.id = cat.idBranch WHERE cgr.category='%1'").arg(scope_cat));
-    }
-    else if(ui->comboBox_cat->currentText() == "All Categories" && ui->comboBox_cities->currentText()!="All Cities"){
-        mModel->setQuery(QString("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch]"
-    " from Catalogue as cat inner join Books AS bo on bo.id = cat.idBook "
-    "inner join Categories AS cgr ON cgr.id = bo.idCategory"
-    " inner join Branches as br on br.id = cat.idBranch WHERE br.city='%1'").arg(scope_cities));
+    if(book_title.size() == 0){
+        if(scope_cat == "All Categories" && scope_cities=="All Cities"){
+            mModel->setQuery(query_catalogue);
+        }
+        else if(scope_cat != "All Categories" && scope_cities=="All Cities"){
+            mModel->setQuery(QString(query_catalogue+" WHERE cgr.category='%1'").arg(scope_cat));
+        }
+        else if(scope_cat == "All Categories" && scope_cities!="All Cities"){
+            mModel->setQuery(QString(query_catalogue+" WHERE br.city='%1'").arg(scope_cities));
+        }
+        else{
+            mModel->setQuery(QString(query_catalogue+" WHERE cgr.category='%1' AND br.city='%2'").arg(scope_cat,scope_cities));
+        }
+        QMessageBox::information(this, "Filters",
+                                 "Applied filters:\n\nCategory: "+scope_cat+"\n"
+                                 "City: "+scope_cities);
     }
     else{
-        mModel->setQuery(QString("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
-    "inner join Books AS bo on bo.id = cat.idBook "
-    "inner join Categories AS cgr ON cgr.id = bo.idCategory "
-    "inner join Branches as br on br.id = cat.idBranch WHERE cgr.category='%1' AND br.city='%2'").arg(scope_cat,scope_cities));
+        if(scope_cat == "All Categories" && scope_cities=="All Cities"){
+            mModel->setQuery(QString(query_catalogue+" WHERE bo.title like '%1%'").arg(book_title));
+        }
+        else if(scope_cat != "All Categories" && scope_cities=="All Cities"){
+            mModel->setQuery(QString(query_catalogue+" WHERE cgr.category='%1' AND bo.title like '%2%'").arg(scope_cat, book_title));
+        }
+        else if(scope_cat == "All Categories" && scope_cities!="All Cities"){
+            mModel->setQuery(QString(query_catalogue+" WHERE br.city='%1'AND bo.title like '%2%'").arg(scope_cities, book_title));
+        }
+        else{
+            mModel->setQuery(QString(query_catalogue+" WHERE cgr.category='%1' AND br.city='%2' AND bo.title like '%3%'").arg(scope_cat,scope_cities, book_title));
+        }
+
+        QMessageBox::information(this, "Filters",
+                                 "Applied filters:\n\nTitle: "+book_title+"\n"
+                                 "Category: "+scope_cat+"\n"
+                                 "City: "+scope_cities);
     }
 
     ui->tableView_cat->setModel(mModel);

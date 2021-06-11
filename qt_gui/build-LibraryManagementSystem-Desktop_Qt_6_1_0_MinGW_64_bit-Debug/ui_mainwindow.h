@@ -58,12 +58,15 @@ public:
     QTableView *tableView_cat;
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
-    QLabel *label_2;
-    QComboBox *comboBox_cat;
-    QPushButton *pushButton;
-    QFrame *line;
     QComboBox *comboBox_cities;
+    QComboBox *comboBox_cat;
     QLabel *label;
+    QLineEdit *lineEdit_title;
+    QPushButton *pushButton;
+    QLabel *label_2;
+    QFrame *line;
+    QLabel *label_5;
+    QFrame *line_2;
     QWidget *page_readers;
     QHBoxLayout *horizontalLayout_3;
     QTableView *tableView_readers;
@@ -173,13 +176,13 @@ public:
         groupBox->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        label_2 = new QLabel(groupBox);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        QFont font;
-        font.setPointSize(10);
-        label_2->setFont(font);
+        comboBox_cities = new QComboBox(groupBox);
+        comboBox_cities->addItem(QString());
+        comboBox_cities->addItem(QString());
+        comboBox_cities->addItem(QString());
+        comboBox_cities->setObjectName(QString::fromUtf8("comboBox_cities"));
 
-        gridLayout->addWidget(label_2, 2, 0, 1, 1);
+        gridLayout->addWidget(comboBox_cities, 4, 1, 1, 1);
 
         comboBox_cat = new QComboBox(groupBox);
         comboBox_cat->addItem(QString());
@@ -191,7 +194,20 @@ public:
         comboBox_cat->addItem(QString());
         comboBox_cat->setObjectName(QString::fromUtf8("comboBox_cat"));
 
-        gridLayout->addWidget(comboBox_cat, 0, 1, 1, 1);
+        gridLayout->addWidget(comboBox_cat, 2, 1, 1, 1);
+
+        label = new QLabel(groupBox);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setPointSize(10);
+        label->setFont(font);
+
+        gridLayout->addWidget(label, 2, 0, 1, 1);
+
+        lineEdit_title = new QLineEdit(groupBox);
+        lineEdit_title->setObjectName(QString::fromUtf8("lineEdit_title"));
+
+        gridLayout->addWidget(lineEdit_title, 0, 1, 1, 1);
 
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -201,7 +217,13 @@ public:
         sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
         pushButton->setSizePolicy(sizePolicy1);
 
-        gridLayout->addWidget(pushButton, 3, 0, 1, 2);
+        gridLayout->addWidget(pushButton, 5, 0, 1, 2);
+
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font);
+
+        gridLayout->addWidget(label_2, 4, 0, 1, 1);
 
         line = new QFrame(groupBox);
         line->setObjectName(QString::fromUtf8("line"));
@@ -213,21 +235,22 @@ public:
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line, 1, 0, 1, 2);
+        gridLayout->addWidget(line, 3, 0, 1, 2);
 
-        comboBox_cities = new QComboBox(groupBox);
-        comboBox_cities->addItem(QString());
-        comboBox_cities->addItem(QString());
-        comboBox_cities->addItem(QString());
-        comboBox_cities->setObjectName(QString::fromUtf8("comboBox_cities"));
+        label_5 = new QLabel(groupBox);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setFont(font);
 
-        gridLayout->addWidget(comboBox_cities, 2, 1, 1, 1);
+        gridLayout->addWidget(label_5, 0, 0, 1, 1);
 
-        label = new QLabel(groupBox);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font);
+        line_2 = new QFrame(groupBox);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        sizePolicy2.setHeightForWidth(line_2->sizePolicy().hasHeightForWidth());
+        line_2->setSizePolicy(sizePolicy2);
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(label, 0, 0, 1, 1);
+        gridLayout->addWidget(line_2, 1, 0, 1, 2);
 
 
         horizontalLayout->addWidget(groupBox);
@@ -380,7 +403,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -400,8 +423,10 @@ public:
         actionEmployees->setText(QCoreApplication::translate("MainWindow", "Employees", nullptr));
         actionDatabase_Diagram->setText(QCoreApplication::translate("MainWindow", "Database Diagram", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Filters", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Selected\n"
-"City:", nullptr));
+        comboBox_cities->setItemText(0, QCoreApplication::translate("MainWindow", "All Cities", nullptr));
+        comboBox_cities->setItemText(1, QCoreApplication::translate("MainWindow", "London", nullptr));
+        comboBox_cities->setItemText(2, QCoreApplication::translate("MainWindow", "Toronto", nullptr));
+
         comboBox_cat->setItemText(0, QCoreApplication::translate("MainWindow", "All Categories", nullptr));
         comboBox_cat->setItemText(1, QCoreApplication::translate("MainWindow", "Biography", nullptr));
         comboBox_cat->setItemText(2, QCoreApplication::translate("MainWindow", "Crime", nullptr));
@@ -410,13 +435,12 @@ public:
         comboBox_cat->setItemText(5, QCoreApplication::translate("MainWindow", "Sport", nullptr));
         comboBox_cat->setItemText(6, QCoreApplication::translate("MainWindow", "Travel", nullptr));
 
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Apply filters", nullptr));
-        comboBox_cities->setItemText(0, QCoreApplication::translate("MainWindow", "All Cities", nullptr));
-        comboBox_cities->setItemText(1, QCoreApplication::translate("MainWindow", "London", nullptr));
-        comboBox_cities->setItemText(2, QCoreApplication::translate("MainWindow", "Toronto", nullptr));
-
         label->setText(QCoreApplication::translate("MainWindow", "Selected\n"
 "Categories:", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Apply filters", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Selected\n"
+"City:", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Title:", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "Filters", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "First Name:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Surname:", nullptr));
