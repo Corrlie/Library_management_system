@@ -102,13 +102,14 @@ void MainWindow::on_actionLibraries_triggered()
 
 void MainWindow::on_actionReaders_triggered()
 {
-    ui->stackedWidget->setCurrentWidget(ui->page_table);
+//    ui->stackedWidget->setCurrentWidget(ui->page_table);
+    ui->stackedWidget->setCurrentWidget(ui->page_readers);
     mModel->setQuery("SELECT r.lastname+' '+r.firstName [Full Name],"
                     "r.dateOfBirth [Birth Date],"
                     "r.dateOfJoining [Join Date],"
                     "r.phoneNumber [Phone Number]"
                     " FROM Readers as r");
-    ui->tableView->setModel(mModel);
+    ui->tableView_readers->setModel(mModel);
 }
 
 
@@ -184,5 +185,31 @@ void MainWindow::on_actionDatabase_Diagram_triggered()
     dbDiagramWindow.setModal(true);
     dbDiagramWindow.exec();
 
+}
+
+
+void MainWindow::on_pushButton_filters_readers_clicked()
+{
+    QString name_reader = ui->lineEdit_name_reader->text();
+    QString surname_reader = ui->lineEdit_surname_reader->text();
+    QString query_readers = "SELECT r.lastname+' '+r.firstName [Full Name],"
+                        "r.dateOfBirth [Birth Date],"
+                        "r.dateOfJoining [Join Date],"
+                        "r.phoneNumber [Phone Number]"
+                        " FROM Readers as r";
+    if(name_reader.size() == 0 && surname_reader.size() == 0){
+        mModel->setQuery(query_readers);
+    }
+    else if(name_reader.size() != 0 && surname_reader.size() == 0){
+        mModel->setQuery(QString(query_readers + " WHERE r.firstName = '%1'").arg(name_reader));
+    }
+    else if(name_reader.size() == 0 && surname_reader.size() != 0){
+        mModel->setQuery(QString(query_readers + " WHERE r.lastname = '%1'").arg(surname_reader));
+    }
+    else{
+        mModel->setQuery(QString(query_readers + " WHERE r.firstName = '%1' AND r.lastname = '%2'").arg(name_reader, surname_reader));
+    }
+
+    ui->tableView_readers->setModel(mModel);
 }
 

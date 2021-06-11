@@ -42,6 +42,8 @@ private slots:
 
     void on_actionDatabase_Diagram_triggered();
 
+    void on_pushButton_filters_readers_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbConnection mDbConnection;

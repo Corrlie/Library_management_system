@@ -13,16 +13,19 @@
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableView>
@@ -61,6 +64,20 @@ public:
     QFrame *line;
     QComboBox *comboBox_cities;
     QLabel *label;
+    QWidget *page_readers;
+    QHBoxLayout *horizontalLayout_3;
+    QTableView *tableView_readers;
+    QGroupBox *groupBox_2;
+    QGridLayout *gridLayout_2;
+    QFormLayout *formLayout;
+    QLabel *label_3;
+    QLineEdit *lineEdit_name_reader;
+    QLabel *label_4;
+    QLineEdit *lineEdit_surname_reader;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *pushButton_filters_readers;
     QWidget *page_start;
     QVBoxLayout *verticalLayout_2;
     QLabel *lbl_notConnected;
@@ -216,15 +233,85 @@ public:
         horizontalLayout->addWidget(groupBox);
 
         stackedWidget->addWidget(page_catalogue);
+        page_readers = new QWidget();
+        page_readers->setObjectName(QString::fromUtf8("page_readers"));
+        horizontalLayout_3 = new QHBoxLayout(page_readers);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        tableView_readers = new QTableView(page_readers);
+        tableView_readers->setObjectName(QString::fromUtf8("tableView_readers"));
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(tableView_readers->sizePolicy().hasHeightForWidth());
+        tableView_readers->setSizePolicy(sizePolicy3);
+
+        horizontalLayout_3->addWidget(tableView_readers);
+
+        groupBox_2 = new QGroupBox(page_readers);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
+        groupBox_2->setSizePolicy(sizePolicy);
+        gridLayout_2 = new QGridLayout(groupBox_2);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        label_3 = new QLabel(groupBox_2);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        QFont font1;
+        font1.setPointSize(11);
+        label_3->setFont(font1);
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, label_3);
+
+        lineEdit_name_reader = new QLineEdit(groupBox_2);
+        lineEdit_name_reader->setObjectName(QString::fromUtf8("lineEdit_name_reader"));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit_name_reader);
+
+        label_4 = new QLabel(groupBox_2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setFont(font1);
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_4);
+
+        lineEdit_surname_reader = new QLineEdit(groupBox_2);
+        lineEdit_surname_reader->setObjectName(QString::fromUtf8("lineEdit_surname_reader"));
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_surname_reader);
+
+        verticalSpacer = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout->setItem(1, QFormLayout::LabelRole, verticalSpacer);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout->setItem(3, QFormLayout::LabelRole, verticalSpacer_3);
+
+
+        gridLayout_2->addLayout(formLayout, 1, 0, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_2, 0, 0, 1, 1);
+
+        pushButton_filters_readers = new QPushButton(groupBox_2);
+        pushButton_filters_readers->setObjectName(QString::fromUtf8("pushButton_filters_readers"));
+
+        gridLayout_2->addWidget(pushButton_filters_readers, 2, 0, 1, 1);
+
+
+        horizontalLayout_3->addWidget(groupBox_2);
+
+        stackedWidget->addWidget(page_readers);
         page_start = new QWidget();
         page_start->setObjectName(QString::fromUtf8("page_start"));
         verticalLayout_2 = new QVBoxLayout(page_start);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         lbl_notConnected = new QLabel(page_start);
         lbl_notConnected->setObjectName(QString::fromUtf8("lbl_notConnected"));
-        QFont font1;
-        font1.setPointSize(16);
-        lbl_notConnected->setFont(font1);
+        QFont font2;
+        font2.setPointSize(16);
+        lbl_notConnected->setFont(font2);
         lbl_notConnected->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(lbl_notConnected);
@@ -235,11 +322,11 @@ public:
 
         lbl_connection_status = new QLabel(centralwidget);
         lbl_connection_status->setObjectName(QString::fromUtf8("lbl_connection_status"));
-        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(lbl_connection_status->sizePolicy().hasHeightForWidth());
-        lbl_connection_status->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy4(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(lbl_connection_status->sizePolicy().hasHeightForWidth());
+        lbl_connection_status->setSizePolicy(sizePolicy4);
         lbl_connection_status->setMinimumSize(QSize(0, 0));
         lbl_connection_status->setMaximumSize(QSize(20, 20));
         lbl_connection_status->setPixmap(QPixmap(QString::fromUtf8(":/res/img/warning.png")));
@@ -261,9 +348,9 @@ public:
         MainWindow->setStatusBar(statusbar);
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
-        QFont font2;
-        font2.setPointSize(7);
-        toolBar->setFont(font2);
+        QFont font3;
+        font3.setPointSize(7);
+        toolBar->setFont(font3);
         toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         MainWindow->addToolBar(Qt::LeftToolBarArea, toolBar);
 
@@ -293,7 +380,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -330,6 +417,10 @@ public:
 
         label->setText(QCoreApplication::translate("MainWindow", "Selected\n"
 "Categories:", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "Filters", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "First Name:", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Surname:", nullptr));
+        pushButton_filters_readers->setText(QCoreApplication::translate("MainWindow", "Apply Filters", nullptr));
         lbl_notConnected->setText(QCoreApplication::translate("MainWindow", "No database connected!", nullptr));
         lbl_connection_status->setText(QString());
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
