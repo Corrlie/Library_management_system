@@ -32,10 +32,10 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resources.qrc">:/res/img/diagramDb.PNG</pixmap>
+      <pixmap resource="resources.qrc">:/res/img/diagramDbUpdate.PNG</pixmap>
      </property>
      <property name="scaledContents">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </item>

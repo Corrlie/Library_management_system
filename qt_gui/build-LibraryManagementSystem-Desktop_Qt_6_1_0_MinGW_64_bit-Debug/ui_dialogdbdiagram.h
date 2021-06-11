@@ -34,8 +34,8 @@ public:
         lbl_dbDiagram = new QLabel(DialogDbDiagram);
         lbl_dbDiagram->setObjectName(QString::fromUtf8("lbl_dbDiagram"));
         lbl_dbDiagram->setMaximumSize(QSize(16777215, 16777215));
-        lbl_dbDiagram->setPixmap(QPixmap(QString::fromUtf8(":/res/img/diagramDb.PNG")));
-        lbl_dbDiagram->setScaledContents(true);
+        lbl_dbDiagram->setPixmap(QPixmap(QString::fromUtf8(":/res/img/diagramDbUpdate.PNG")));
+        lbl_dbDiagram->setScaledContents(false);
 
         gridLayout->addWidget(lbl_dbDiagram, 0, 0, 1, 1);
 

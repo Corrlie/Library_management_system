@@ -12,5 +12,6 @@
         <file>img/warning.png</file>
         <file>img/noDataBaseConnected-noText.png</file>
         <file>img/diagramDb.PNG</file>
+        <file>img/diagramDbUpdate.PNG</file>
     </qresource>
 </RCC>

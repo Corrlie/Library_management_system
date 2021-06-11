@@ -121,6 +121,7 @@ debug/qrc_resources.cpp: ../LibraryManagementSystem/resources.qrc \
 		../LibraryManagementSystem/img/close2.png \
 		../LibraryManagementSystem/img/diagramDb.PNG \
 		../LibraryManagementSystem/img/books.png \
+		../LibraryManagementSystem/img/diagramDbUpdate.PNG \
 		../LibraryManagementSystem/img/confirm.png \
 		../LibraryManagementSystem/img/branches.png \
 		../LibraryManagementSystem/img/new_database.png \
@@ -664,7 +665,17 @@ debug/dialogdbdiagram.o: ../LibraryManagementSystem/dialogdbdiagram.cpp ../Libra
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
-		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtCore/qlocale.h
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QGridLayout \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qboxlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QLabel \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlabel.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qpicture.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qtextdocument.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dialogdbdiagram.o ..\LibraryManagementSystem\dialogdbdiagram.cpp
 
 debug/main.o: ../LibraryManagementSystem/main.cpp ../LibraryManagementSystem/mainwindow.h \
@@ -979,12 +990,15 @@ debug/mainwindow.o: ../LibraryManagementSystem/mainwindow.cpp ../LibraryManageme
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qrubberband.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
-		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QFrame \
-		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QGridLayout \
-		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QFormLayout \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qformlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QLayout \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlayout.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qboxlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QFrame \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QGridLayout \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QGroupBox \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qgroupbox.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QHBoxLayout \
@@ -997,6 +1011,12 @@ debug/mainwindow.o: ../LibraryManagementSystem/mainwindow.cpp ../LibraryManageme
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlabel.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qpicture.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QLineEdit \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qlineedit.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qpen.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QMenu \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qmenu.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QMenuBar \
@@ -1004,6 +1024,7 @@ debug/mainwindow.o: ../LibraryManagementSystem/mainwindow.cpp ../LibraryManageme
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QPushButton \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qpushbutton.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QSpacerItem \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QStackedWidget \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/qstackedwidget.h \
 		D:/Studia/inne/qt_cpp/zainstalowany/6.1.0/mingw81_64/include/QtWidgets/QStatusBar \

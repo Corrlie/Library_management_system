@@ -7,7 +7,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , mDbConnection("DESKTOP-LM64CK7\\SQLEXPRESS","SQL SERVER", "hp", "", "Library", true)
+    , mDbConnection("DESKTOP-LM64CK7\\SQLEXPRESS","SQL SERVER", "hp", "", "Library_database", true)
 {
     ui->setupUi(this);
     mModel = nullptr;
@@ -84,7 +84,7 @@ void MainWindow::on_actionCatalogue_triggered()
 
     ui->stackedWidget->setCurrentWidget(ui->page_catalogue);
 
-    mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+    mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], cat.isBorrowed [Status], br.city+' '+br.address [Library Branch] from Catalogue as cat "
 "inner join Books AS bo on bo.id = cat.idBook "
 "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch");
 
@@ -136,7 +136,7 @@ void MainWindow::on_pushButton_clicked()
     QString scope_cat = ui->comboBox_cat->currentText();
     QString scope_cities = ui->comboBox_cities->currentText();
     QString book_title= ui->lineEdit_title->text();
-    QString query_catalogue = "select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], br.city+' '+br.address [Library Branch] from Catalogue as cat "
+    QString query_catalogue = "select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], cat.isBorrowed [Status], br.city+' '+br.address [Library Branch] from Catalogue as cat "
         "inner join Books AS bo on bo.id = cat.idBook "
         "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch";
 
