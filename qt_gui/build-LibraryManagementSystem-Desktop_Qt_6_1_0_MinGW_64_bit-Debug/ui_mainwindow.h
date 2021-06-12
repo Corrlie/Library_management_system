@@ -48,6 +48,7 @@ public:
     QAction *actionBorrowings;
     QAction *actionEmployees;
     QAction *actionDatabase_Diagram;
+    QAction *actionNew_Query;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout_2;
     QStackedWidget *stackedWidget;
@@ -143,6 +144,12 @@ public:
         actionDatabase_Diagram = new QAction(MainWindow);
         actionDatabase_Diagram->setObjectName(QString::fromUtf8("actionDatabase_Diagram"));
         actionDatabase_Diagram->setEnabled(false);
+        actionNew_Query = new QAction(MainWindow);
+        actionNew_Query->setObjectName(QString::fromUtf8("actionNew_Query"));
+        actionNew_Query->setEnabled(false);
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/res/img/add_query.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionNew_Query->setIcon(icon7);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
@@ -274,6 +281,7 @@ public:
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
         groupBox_2->setSizePolicy(sizePolicy);
+        groupBox_2->setAlignment(Qt::AlignCenter);
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         formLayout = new QFormLayout();
@@ -374,12 +382,15 @@ public:
         QFont font3;
         font3.setPointSize(7);
         toolBar->setFont(font3);
+        toolBar->setMovable(false);
         toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         MainWindow->addToolBar(Qt::LeftToolBarArea, toolBar);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionConnect_DB);
+        menuFile->addSeparator();
+        menuFile->addAction(actionNew_Query);
         menuFile->addSeparator();
         menuFile->addAction(actionQuit);
         menuHelp->addAction(actionAbout);
@@ -403,7 +414,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -422,6 +433,7 @@ public:
         actionBorrowings->setText(QCoreApplication::translate("MainWindow", "Borrowed Books", nullptr));
         actionEmployees->setText(QCoreApplication::translate("MainWindow", "Employees", nullptr));
         actionDatabase_Diagram->setText(QCoreApplication::translate("MainWindow", "Database Diagram", nullptr));
+        actionNew_Query->setText(QCoreApplication::translate("MainWindow", "New Query", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Filters", nullptr));
         comboBox_cities->setItemText(0, QCoreApplication::translate("MainWindow", "All Cities", nullptr));
         comboBox_cities->setItemText(1, QCoreApplication::translate("MainWindow", "London", nullptr));

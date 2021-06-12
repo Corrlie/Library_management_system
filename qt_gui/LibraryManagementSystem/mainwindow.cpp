@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <QSqlQueryModel>
 #include "dialogdbdiagram.h"
+#include "dialognewquery.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,15 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->statusbar->addPermanentWidget(ui->lbl_connection_status);
     ui->statusbar->showMessage("Database is not connected");
     ui->stackedWidget->setCurrentWidget(ui->page_start);
-
-
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_actionConnect_DB_triggered()
 {
@@ -51,6 +49,7 @@ void MainWindow::on_actionConnect_DB_triggered()
         ui->actionBorrowings->setEnabled(true);
         ui->actionEmployees->setEnabled(true);
         ui->actionDatabase_Diagram->setEnabled(true);
+        ui->actionNew_Query->setEnabled(true);
 
         // set Model and Page
         ui->tableView->setModel(mModel);
@@ -81,12 +80,12 @@ void MainWindow::on_actionAbout_Qt_triggered()
 
 void MainWindow::on_actionCatalogue_triggered()
 {
-
     ui->stackedWidget->setCurrentWidget(ui->page_catalogue);
 
     mModel->setQuery("select bo.title [Title], bo.authorLastName+' '+bo.authorFirstName [Author],  cgr.category [Category], cat.isBorrowed [Status], br.city+' '+br.address [Library Branch] from Catalogue as cat "
 "inner join Books AS bo on bo.id = cat.idBook "
 "inner join Categories AS cgr ON cgr.id = bo.idCategory inner join Branches as br on br.id = cat.idBranch");
+
 
     ui->tableView_cat->setModel(mModel);
 }
@@ -102,7 +101,6 @@ void MainWindow::on_actionLibraries_triggered()
 
 void MainWindow::on_actionReaders_triggered()
 {
-//    ui->stackedWidget->setCurrentWidget(ui->page_table);
     ui->stackedWidget->setCurrentWidget(ui->page_readers);
     mModel->setQuery("SELECT r.lastname+' '+r.firstName [Full Name],"
                     "r.dateOfBirth [Birth Date],"
@@ -131,7 +129,7 @@ void MainWindow::on_actionEmployees_triggered()
     ui->tableView->setModel(mModel);
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked() // catalogue filters
 {
     QString scope_cat = ui->comboBox_cat->currentText();
     QString scope_cities = ui->comboBox_cities->currentText();
@@ -188,7 +186,6 @@ void MainWindow::on_actionDatabase_Diagram_triggered()
     DialogDbDiagram dbDiagramWindow;
     dbDiagramWindow.setModal(true);
     dbDiagramWindow.exec();
-
 }
 
 
@@ -215,5 +212,13 @@ void MainWindow::on_pushButton_filters_readers_clicked()
     }
 
     ui->tableView_readers->setModel(mModel);
+}
+
+
+void MainWindow::on_actionNew_Query_triggered()
+{
+    DialogNewQuery userQueryDialog;
+    userQueryDialog.setModal(true);
+    userQueryDialog.exec();
 }
 

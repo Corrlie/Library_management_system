@@ -13,5 +13,6 @@
         <file>img/noDataBaseConnected-noText.png</file>
         <file>img/diagramDb.PNG</file>
         <file>img/diagramDbUpdate.PNG</file>
+        <file>img/add_query.png</file>
     </qresource>
 </RCC>

@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_table">
        <widget class="QTableView" name="tableView">
@@ -230,6 +230,9 @@ City:</string>
           <property name="title">
            <string>Filters</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="1" column="0">
             <layout class="QFormLayout" name="formLayout">
@@ -385,6 +388,8 @@ City:</string>
     </property>
     <addaction name="actionConnect_DB"/>
     <addaction name="separator"/>
+    <addaction name="actionNew_Query"/>
+    <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -409,6 +414,9 @@ City:</string>
    </property>
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextUnderIcon</enum>
@@ -527,6 +535,18 @@ City:</string>
    </property>
    <property name="text">
     <string>Database Diagram</string>
+   </property>
+  </action>
+  <action name="actionNew_Query">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/res/img/add_query.png</normaloff>:/res/img/add_query.png</iconset>
+   </property>
+   <property name="text">
+    <string>New Query</string>
    </property>
   </action>
  </widget>

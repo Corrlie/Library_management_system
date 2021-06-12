@@ -14,12 +14,8 @@ DbConnection::DbConnection(const QString &server, const QString &driver,const QS
 }
 bool DbConnection::openDatabase(QString *error){
     Database.setDatabaseName(QString("DRIVER={%1}; SERVER=%2; DATABASE=%3; UID=%4; PWD=%5;Trusted_Connection=%6;")
-                             .arg(mDriver)
-                             .arg(mServer)
-                             .arg(mDatabaseName)
-                             .arg(mUser)
-                             .arg(mPassword)
-                             .arg(mTrustedConnection?"Yes":"No"));
+                             .arg(mDriver, mServer, mDatabaseName, mUser, mPassword, mTrustedConnection?"Yes":"No"));
+
     if(!Database.open()){
         if(error!=nullptr){
             *error = Database.lastError().text();

@@ -27,7 +27,7 @@ public:
     {
         if (DialogDbDiagram->objectName().isEmpty())
             DialogDbDiagram->setObjectName(QString::fromUtf8("DialogDbDiagram"));
-        DialogDbDiagram->resize(1092, 762);
+        DialogDbDiagram->resize(1063, 654);
         DialogDbDiagram->setMaximumSize(QSize(1092, 800));
         gridLayout = new QGridLayout(DialogDbDiagram);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));

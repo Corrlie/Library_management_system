@@ -44,6 +44,8 @@ private slots:
 
     void on_pushButton_filters_readers_clicked();
 
+    void on_actionNew_Query_triggered();
+
 private:
     Ui::MainWindow *ui;
     DbConnection mDbConnection;
