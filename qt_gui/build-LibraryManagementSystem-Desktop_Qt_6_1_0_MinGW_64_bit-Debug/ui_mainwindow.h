@@ -63,7 +63,7 @@ public:
     QComboBox *comboBox_cat;
     QLabel *label;
     QLineEdit *lineEdit_title;
-    QPushButton *pushButton;
+    QPushButton *pushButton_filters_cat;
     QLabel *label_2;
     QFrame *line;
     QLabel *label_5;
@@ -216,15 +216,15 @@ public:
 
         gridLayout->addWidget(lineEdit_title, 0, 1, 1, 1);
 
-        pushButton = new QPushButton(groupBox);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton_filters_cat = new QPushButton(groupBox);
+        pushButton_filters_cat->setObjectName(QString::fromUtf8("pushButton_filters_cat"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
+        sizePolicy1.setHeightForWidth(pushButton_filters_cat->sizePolicy().hasHeightForWidth());
+        pushButton_filters_cat->setSizePolicy(sizePolicy1);
 
-        gridLayout->addWidget(pushButton, 5, 0, 1, 2);
+        gridLayout->addWidget(pushButton_filters_cat, 5, 0, 1, 2);
 
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -414,7 +414,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -449,7 +449,7 @@ public:
 
         label->setText(QCoreApplication::translate("MainWindow", "Selected\n"
 "Categories:", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Apply filters", nullptr));
+        pushButton_filters_cat->setText(QCoreApplication::translate("MainWindow", "Apply filters", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Selected\n"
 "City:", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Title:", nullptr));

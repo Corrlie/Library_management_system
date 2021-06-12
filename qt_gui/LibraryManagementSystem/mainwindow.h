@@ -3,7 +3,9 @@
 
 #include <QMainWindow>
 #include "dbconnection.h"
-
+#include "dialogdbdiagram.h"
+#include "dialognewquery.h"
+#include <memory>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,7 +40,7 @@ private slots:
 
     void on_actionEmployees_triggered();
 
-    void on_pushButton_clicked();
+    void on_pushButton_filters_cat_clicked();
 
     void on_actionDatabase_Diagram_triggered();
 
@@ -50,5 +52,7 @@ private:
     Ui::MainWindow *ui;
     DbConnection mDbConnection;
     QSqlQueryModel *mModel;
+    std::unique_ptr<DialogDbDiagram> dbDiagramWindow;
+    std::unique_ptr<DialogNewQuery> userQueryWindow;
 };
 #endif // MAINWINDOW_H

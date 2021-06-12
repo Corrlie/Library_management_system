@@ -12,6 +12,7 @@ DialogNewQuery::DialogNewQuery(QWidget *parent) :
 
 DialogNewQuery::~DialogNewQuery()
 {
+    delete mUserQuery;
     delete ui;
 }
 
@@ -23,6 +24,5 @@ void DialogNewQuery::on_pushButton_execQuery_clicked()
     mUserQuery = new QSqlQueryModel(this);
     mUserQuery->setQuery(userQuery);
     ui->tableView_userQuery->setModel(mUserQuery);
-
 }
 

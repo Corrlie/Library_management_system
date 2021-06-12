@@ -2,8 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QSqlQueryModel>
-#include "dialogdbdiagram.h"
-#include "dialognewquery.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete mModel;
     delete ui;
 }
 
@@ -129,7 +129,7 @@ void MainWindow::on_actionEmployees_triggered()
     ui->tableView->setModel(mModel);
 }
 
-void MainWindow::on_pushButton_clicked() // catalogue filters
+void MainWindow::on_pushButton_filters_cat_clicked() // catalogue filters
 {
     QString scope_cat = ui->comboBox_cat->currentText();
     QString scope_cities = ui->comboBox_cities->currentText();
@@ -183,9 +183,8 @@ void MainWindow::on_pushButton_clicked() // catalogue filters
 
 void MainWindow::on_actionDatabase_Diagram_triggered()
 {
-    DialogDbDiagram dbDiagramWindow;
-    dbDiagramWindow.setModal(true);
-    dbDiagramWindow.exec();
+    dbDiagramWindow = std::make_unique<DialogDbDiagram>(this);
+    dbDiagramWindow->show();
 }
 
 
@@ -217,8 +216,7 @@ void MainWindow::on_pushButton_filters_readers_clicked()
 
 void MainWindow::on_actionNew_Query_triggered()
 {
-    DialogNewQuery userQueryDialog;
-    userQueryDialog.setModal(true);
-    userQueryDialog.exec();
+    userQueryWindow = std::make_unique<DialogNewQuery>(this);
+    userQueryWindow->show();
 }
 

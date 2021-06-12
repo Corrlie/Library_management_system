@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     const uint offsetsAndSize[30];
-    char stringdata0[388];
+    char stringdata0[400];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -40,10 +40,10 @@ QT_MOC_LITERAL(148, 28), // "on_actionLibraries_triggered"
 QT_MOC_LITERAL(177, 26), // "on_actionReaders_triggered"
 QT_MOC_LITERAL(204, 29), // "on_actionBorrowings_triggered"
 QT_MOC_LITERAL(234, 28), // "on_actionEmployees_triggered"
-QT_MOC_LITERAL(263, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(285, 35), // "on_actionDatabase_Diagram_tri..."
-QT_MOC_LITERAL(321, 37), // "on_pushButton_filters_readers..."
-QT_MOC_LITERAL(359, 28) // "on_actionNew_Query_triggered"
+QT_MOC_LITERAL(263, 33), // "on_pushButton_filters_cat_cli..."
+QT_MOC_LITERAL(297, 35), // "on_actionDatabase_Diagram_tri..."
+QT_MOC_LITERAL(333, 37), // "on_pushButton_filters_readers..."
+QT_MOC_LITERAL(371, 28) // "on_actionNew_Query_triggered"
 
     },
     "MainWindow\0on_actionConnect_DB_triggered\0"
@@ -55,7 +55,7 @@ QT_MOC_LITERAL(359, 28) // "on_actionNew_Query_triggered"
     "on_actionReaders_triggered\0"
     "on_actionBorrowings_triggered\0"
     "on_actionEmployees_triggered\0"
-    "on_pushButton_clicked\0"
+    "on_pushButton_filters_cat_clicked\0"
     "on_actionDatabase_Diagram_triggered\0"
     "on_pushButton_filters_readers_clicked\0"
     "on_actionNew_Query_triggered"
@@ -123,7 +123,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_actionReaders_triggered(); break;
         case 7: _t->on_actionBorrowings_triggered(); break;
         case 8: _t->on_actionEmployees_triggered(); break;
-        case 9: _t->on_pushButton_clicked(); break;
+        case 9: _t->on_pushButton_filters_cat_clicked(); break;
         case 10: _t->on_actionDatabase_Diagram_triggered(); break;
         case 11: _t->on_pushButton_filters_readers_clicked(); break;
         case 12: _t->on_actionNew_Query_triggered(); break;
