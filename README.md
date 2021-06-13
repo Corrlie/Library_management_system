@@ -18,7 +18,7 @@ In the sql_queries directory there are three files - first - responsible for cre
 If the database is already prepared, run the qt-part project from qt_gui directory. After hitting "Run" the window presented below is shown.
 
 
-![1_notConnected](https://user-images.githubusercontent.com/63510085/121780750-10af5a80-cba2-11eb-9207-9fe0eb5894b5.PNG)
+![1a_notConn](https://user-images.githubusercontent.com/63510085/121808776-69422e80-cc5a-11eb-98c7-35e613cb53ee.PNG)
 
 
 The user can see, the information, that "No database is connected". On the left side of the window there is a toolbar with some options. There are "Connect DB", "Catalogue", "Branches", "Readers", "Borrowed Books", "Employees", "Quit" options, but every option, apart from "Connect DB" and "Quit", is disabled. At the top there is also a menu bar with "File" and "Help" options. "File" has "Connect DB", "New Query" and "Quit" option, whereas "Help" has "About", "Database Diagram" and "About QT" option. At the botton there is status bar. It contains warning image if database is not connected or confirmation sign if it is connected.
@@ -32,30 +32,30 @@ To use the program the user has to choose "Connect DB" option. It connects SQL S
 After clicking OK on the message box, some options from toolbar and menu bar are set as enabled, and "Connect DB" option is disabled from now.
 
 
-![3_conn_avail](https://user-images.githubusercontent.com/63510085/121780805-405e6280-cba2-11eb-8104-886124bfbae6.PNG)
+![3a_conn_avail](https://user-images.githubusercontent.com/63510085/121808779-6cd5b580-cc5a-11eb-9749-8797a14d538c.PNG)
 
 
-The user can now display on the table view collections of data from database - view for "Catalogue" option is presented below. 
+The user can now display on the table view collections of data from database. Selected collection is backlighted on the toolbar. View for "Catalogue" option is presented below. 
 
 
-![4_catalogue](https://user-images.githubusercontent.com/63510085/121780822-55d38c80-cba2-11eb-8a89-c1b790a39192.PNG)
+![4a_cat](https://user-images.githubusercontent.com/63510085/121820457-2e102180-cc93-11eb-8306-315033e4dd95.PNG)
 
 
 In some collections filters are implemented - for example in "Catalogue" - title, category and city filte, in "Readers" - first name and last name filter. In "Catalogue" after clicking "Apply filters" - the message box shows up, after closing it information table view shows fitting values.
 
 
-![5_cat_filt](https://user-images.githubusercontent.com/63510085/121780836-68e65c80-cba2-11eb-905c-78a97bf4be0b.PNG)
+![5a_cat_fit](https://user-images.githubusercontent.com/63510085/121820461-310b1200-cc93-11eb-821a-088a12080d4b.PNG)
 
 
 After clicking "**Help->Database Diagram**", new dialog is opened. It shows the diagram of database created using sql queries from sql_queries directory.
 
 
-![6_diagram](https://user-images.githubusercontent.com/63510085/121780842-713e9780-cba2-11eb-8bb4-10bfd3b036de.PNG)
+![6a_diagram](https://user-images.githubusercontent.com/63510085/121820462-32d4d580-cc93-11eb-8766-08152d6b180d.PNG)
 
 After clicking "**File->New Query**", new dialog shows up. On the right side of the window there is "Query Script" field and on the right side "Table View" field. After writing the query, the user has to click "Execute Query" and the results are shown in the table view. There is also a message box about inserted query. The user has to remember, that playing with this option could be dangerous for database! :) 
 
 
-![7_query](https://user-images.githubusercontent.com/63510085/121780849-7b609600-cba2-11eb-98c5-01cbcccaf81a.PNG)
+![7a_query](https://user-images.githubusercontent.com/63510085/121820466-349e9900-cc93-11eb-91fc-edf6f4abd568.PNG)
 
 
 Afer clicking "Help->About" message box presenting some short description of the project is shown. After clicking "Help->About Qt" - some informations about Qt are presented.

@@ -8,12 +8,19 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , mDbConnection("DESKTOP-LM64CK7\\SQLEXPRESS","SQL SERVER", "hp", "", "Library_database", true)
+    , actionGroupCollectionsToolbar(this)
 {
     ui->setupUi(this);
     mModel = nullptr;
     ui->statusbar->addPermanentWidget(ui->lbl_connection_status);
     ui->statusbar->showMessage("Database is not connected");
     ui->stackedWidget->setCurrentWidget(ui->page_start);
+
+    actionGroupCollectionsToolbar.addAction(ui->actionBorrowings);
+    actionGroupCollectionsToolbar.addAction(ui->actionCatalogue);
+    actionGroupCollectionsToolbar.addAction(ui->actionEmployees);
+    actionGroupCollectionsToolbar.addAction(ui->actionLibraries);
+    actionGroupCollectionsToolbar.addAction(ui->actionReaders);
 }
 
 MainWindow::~MainWindow()

@@ -470,6 +470,9 @@ City:</string>
    </property>
   </action>
   <action name="actionCatalogue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -482,6 +485,9 @@ City:</string>
    </property>
   </action>
   <action name="actionLibraries">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -494,6 +500,9 @@ City:</string>
    </property>
   </action>
   <action name="actionReaders">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -506,6 +515,9 @@ City:</string>
    </property>
   </action>
   <action name="actionBorrowings">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -518,6 +530,9 @@ City:</string>
    </property>
   </action>
   <action name="actionEmployees">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>

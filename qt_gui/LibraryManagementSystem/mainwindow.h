@@ -5,6 +5,8 @@
 #include "dbconnection.h"
 #include "dialogdbdiagram.h"
 #include "dialognewquery.h"
+#include <QAction>
+#include <QActionGroup>
 #include <memory>
 
 QT_BEGIN_NAMESPACE
@@ -52,7 +54,9 @@ private:
     Ui::MainWindow *ui;
     DbConnection mDbConnection;
     QSqlQueryModel *mModel;
+    QActionGroup actionGroupCollectionsToolbar;
     std::unique_ptr<DialogDbDiagram> dbDiagramWindow;
     std::unique_ptr<DialogNewQuery> userQueryWindow;
+
 };
 #endif // MAINWINDOW_H
