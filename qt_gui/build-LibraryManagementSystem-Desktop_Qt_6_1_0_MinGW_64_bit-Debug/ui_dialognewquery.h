@@ -114,7 +114,7 @@ public:
 
     void retranslateUi(QDialog *DialogNewQuery)
     {
-        DialogNewQuery->setWindowTitle(QCoreApplication::translate("DialogNewQuery", "Dialog", nullptr));
+        DialogNewQuery->setWindowTitle(QCoreApplication::translate("DialogNewQuery", "New Custom Query", nullptr));
         label_2->setText(QCoreApplication::translate("DialogNewQuery", "Table View:", nullptr));
         label->setText(QCoreApplication::translate("DialogNewQuery", "Query Script:", nullptr));
         pushButton_execQuery->setText(QCoreApplication::translate("DialogNewQuery", "Execute Query", nullptr));

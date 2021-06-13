@@ -422,7 +422,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Library Management System", nullptr));
         actionConnect_DB->setText(QCoreApplication::translate("MainWindow", "Connect DB", nullptr));
         actionQuit->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));

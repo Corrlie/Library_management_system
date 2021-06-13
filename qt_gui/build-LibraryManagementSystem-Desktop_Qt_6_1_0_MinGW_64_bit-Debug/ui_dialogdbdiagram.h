@@ -47,7 +47,7 @@ public:
 
     void retranslateUi(QDialog *DialogDbDiagram)
     {
-        DialogDbDiagram->setWindowTitle(QCoreApplication::translate("DialogDbDiagram", "Dialog", nullptr));
+        DialogDbDiagram->setWindowTitle(QCoreApplication::translate("DialogDbDiagram", "Library Database Diagram", nullptr));
         lbl_dbDiagram->setText(QString());
     } // retranslateUi
 
